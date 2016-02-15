@@ -1,21 +1,19 @@
-import sun.awt.image.ImageWatched;
-
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by ismael on 2/15/16.
  */
-public class SchedFCFS implements SchedAlgorithm{
+public class SchedRoundRobin implements SchedAlgorithm {
+    private LinkedList<Process> ready;
+    private LinkedList<Process> blocked;
+    private Process running;
 
-    LinkedList<Process> ready;
-    LinkedList<Process> blocked;
-
-    Process running;
+    private int quantum;
 
     @Override
     public Process getRunning() {
-        return this.running;
+        return running;
     }
 
     @Override
@@ -23,10 +21,9 @@ public class SchedFCFS implements SchedAlgorithm{
 
     }
 
-
     @Override
     public String getName() {
-        return "FCFS (FIFO)";
+        return "Round Robin";
     }
 
 
@@ -39,15 +36,13 @@ public class SchedFCFS implements SchedAlgorithm{
 
     @Override
     public int getQuantum() {
-        return 0;
+        return this.quantum;
     }
 
     @Override
     public void setQuantum(int quantum) {
-        //no quantum in FCFS
+        this.quantum = quantum;
     }
-
-
 
     @Override
     public List<Process> getReady() {

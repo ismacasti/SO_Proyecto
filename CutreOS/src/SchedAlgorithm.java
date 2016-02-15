@@ -7,7 +7,7 @@ import java.util.List;
 public interface SchedAlgorithm {
     public String getName();
 
-    void nextStep(); //here all the scheduling happens
+    void tick(); //here all the scheduling happens
 
     public int newProcess (Process P);
 
@@ -17,6 +17,7 @@ public interface SchedAlgorithm {
     public List<Process> getReady();
     public List<Process> getBlocked();
 
+    public Process getRunning();
 
 
 
