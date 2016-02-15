@@ -12,7 +12,7 @@ public interface SchedAlgorithm {
     public int newProcess (Process P);
 
     public int getQuantum();
-    public void setQuantum();
+    public void setQuantum(int quantum);
 
     public List<Process> getReady();
     public List<Process> getBlocked();

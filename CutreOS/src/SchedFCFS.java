@@ -34,9 +34,11 @@ public class SchedFCFS implements SchedAlgorithm{
     }
 
     @Override
-    public void setQuantum() {
+    public void setQuantum(int quantum) {
         //no quantum in FCFS
     }
+
+
 
     @Override
     public List<Process> getReady() {
