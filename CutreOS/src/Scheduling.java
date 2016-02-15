@@ -6,19 +6,14 @@ import java.util.List;
  */
 public class Scheduling {
 
-    private List<Process> allProcesses = new LinkedList<Process>();
-    private List<Process> ready = new LinkedList<Process>();
-    private List<Process> blocked = new LinkedList<Process>();
+    private LinkedList<Process> allProcesses = new LinkedList<Process>();
 
     private Process running;
 
+    private int procCounter = 0;
 
 
-    public newProcess (String name, int expected_runtime){
-        //blah
-    }
 
-    
-    private static class FIFO {
-    }
+
+
 }

@@ -23,8 +23,13 @@ public class Process {
     Status current;
 
 
-    public Process (String name, int expected_runtime){
+    public Process (String name, int expected_runtime, int pid){
         this.name = name;
         this.expected_runtime = expected_runtime;
+        this.pid = pid;
+    }
+
+    public int getPid(){
+        return this.pid;
     }
 }
