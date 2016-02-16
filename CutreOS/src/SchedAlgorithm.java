@@ -11,6 +11,8 @@ public interface SchedAlgorithm {
 
     public int newProcess (Process P);
 
+    public SchedAlgorithm(LinkedList<Process> allProcess);
+
     public int getQuantum();
     public void setQuantum(int quantum);
 

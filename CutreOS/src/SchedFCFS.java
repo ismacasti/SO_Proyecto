@@ -1,5 +1,6 @@
 import sun.awt.image.ImageWatched;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class SchedFCFS implements SchedAlgorithm{
 
     LinkedList<Process> ready;
     LinkedList<Process> blocked;
+    LinkedList<Process> allProcess;
 
     Process running;
 
@@ -20,9 +22,31 @@ public class SchedFCFS implements SchedAlgorithm{
 
     @Override
     public void tick() {
+        if (this.running.getExpected_runtime() == this.running.getRunning_time()){
+            this.running.finishProcess();
+        }
+
+
 
     }
 
+    private void updateTimes(){
+        for(Iterator<Process> i = this.allProcess.iterator(); i.hasNext();){
+            Process p = i.next();
+            switch(p.getCurrent()){
+                case FINISHED:   break;//nada
+                case READY: p.setReady_time(p.getReady_time()+1);
+                    break;
+                case BLOCKED: p.setBlocked_time(p.getBlocked_time()+1);
+                    break;
+
+            }
+        }
+    }
+
+    public SchedFCFS(LinkedList<Process> allProcess) {
+        this.allProcess = allProcess;
+    }
 
     @Override
     public String getName() {
