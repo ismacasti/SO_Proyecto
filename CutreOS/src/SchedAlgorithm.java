@@ -14,8 +14,8 @@ public interface SchedAlgorithm {
     public int getQuantum();
     public void setQuantum(int quantum);
 
-    public List<Process> getReady();
-    public List<Process> getBlocked();
+    public LinkedList<Process> getReady();
+    public LinkedList<Process> getBlocked();
 
     public Process getRunning();
 

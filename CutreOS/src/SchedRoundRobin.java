@@ -45,12 +45,12 @@ public class SchedRoundRobin implements SchedAlgorithm {
     }
 
     @Override
-    public List<Process> getReady() {
+    public LinkedList<Process> getReady() {
         return this.ready;
     }
 
     @Override
-    public List<Process> getBlocked() {
+    public LinkedList<Process> getBlocked() {
         return this.blocked;
     }
 }
