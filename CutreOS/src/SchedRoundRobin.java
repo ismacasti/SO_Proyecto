@@ -4,12 +4,16 @@ import java.util.List;
 /**
  * Created by ismael on 2/15/16.
  */
-public class SchedRoundRobin implements SchedAlgorithm {
+public class SchedRoundRobin extends SchedAlgorithm {
     private LinkedList<Process> ready;
     private LinkedList<Process> blocked;
     private Process running;
 
     private int quantum;
+
+    public SchedRoundRobin(LinkedList<Process> allProcess) {
+        super(allProcess);
+    }
 
     @Override
     public Process getRunning() {

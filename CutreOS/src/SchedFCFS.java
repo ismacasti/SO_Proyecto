@@ -7,11 +7,35 @@ import java.util.List;
 /**
  * Created by ismael on 2/15/16.
  */
-public class SchedFCFS implements SchedAlgorithm{
+public class SchedFCFS extends SchedAlgorithm{
 
     LinkedList<Process> ready;
     LinkedList<Process> blocked;
     LinkedList<Process> allProcess;
+
+    public SchedFCFS(LinkedList<Process> allProcess) {
+        super(allProcess);
+    }
+
+    @Override
+    public int getQuantum() {
+        return 0;
+    }
+
+    @Override
+    public void setQuantum(int quantum) {
+        //nothing, no quantum in FCFS
+    }
+
+    @Override
+    public LinkedList<Process> getReady() {
+        return this.ready;
+    }
+
+    @Override
+    public LinkedList<Process> getBlocked() {
+        return this.blocked;
+    }
 
     Process running;
 
@@ -22,7 +46,7 @@ public class SchedFCFS implements SchedAlgorithm{
 
     @Override
     public void tick() {
-        if (this.running.getExpected_runtime() == this.running.getRunning_time()){
+        if (this.running.getExpected_runtime() < this.running.getRunning_time()){
             this.running.finishProcess();
         }
 
@@ -30,23 +54,9 @@ public class SchedFCFS implements SchedAlgorithm{
 
     }
 
-    private void updateTimes(){
-        for(Iterator<Process> i = this.allProcess.iterator(); i.hasNext();){
-            Process p = i.next();
-            switch(p.getCurrent()){
-                case FINISHED:   break;//nada
-                case READY: p.setReady_time(p.getReady_time()+1);
-                    break;
-                case BLOCKED: p.setBlocked_time(p.getBlocked_time()+1);
-                    break;
 
-            }
-        }
-    }
 
-    public SchedFCFS(LinkedList<Process> allProcess) {
-        this.allProcess = allProcess;
-    }
+
 
     @Override
     public String getName() {
@@ -61,25 +71,9 @@ public class SchedFCFS implements SchedAlgorithm{
         return (P.getPid());
     }
 
-    @Override
-    public int getQuantum() {
-        return 0;
-    }
-
-    @Override
-    public void setQuantum(int quantum) {
-        //no quantum in FCFS
-    }
 
 
 
-    @Override
-    public List<Process> getReady() {
-        return this.ready;
-    }
 
-    @Override
-    public List<Process> getBlocked() {
-        return this.blocked;
-    }
+
 }
