@@ -26,7 +26,7 @@ public class Scheduling {
         return p;
     }
 
-    public void Scheduling() {
+    public Scheduling() {
 
     }
 
