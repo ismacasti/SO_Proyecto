@@ -1,17 +1,14 @@
-import sun.awt.image.ImageWatched;
-
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by ismael on 2/15/16.
  */
-public class SchedFCFS extends SchedAlgorithm{
+public class SchedFCFS extends SchedAlgorithm {
 
     LinkedList<Process> ready;
     LinkedList<Process> blocked;
     LinkedList<Process> allProcess;
+    Process running;
 
     public SchedFCFS(LinkedList<Process> allProcess) {
         super(allProcess);
@@ -37,8 +34,6 @@ public class SchedFCFS extends SchedAlgorithm{
         return this.blocked;
     }
 
-    Process running;
-
     @Override
     public Process getRunning() {
         return this.running;
@@ -46,16 +41,12 @@ public class SchedFCFS extends SchedAlgorithm{
 
     @Override
     public void tick() {
-        if (this.running.getExpected_runtime() < this.running.getRunning_time()){
+        if (this.running.getExpected_runtime() < this.running.getRunning_time()) {
             this.running.finishProcess();
         }
 
 
-
     }
-
-
-
 
 
     @Override
@@ -64,16 +55,11 @@ public class SchedFCFS extends SchedAlgorithm{
     }
 
 
-
     @Override
     public int newProcess(Process P) {
         this.ready.addLast(P);
         return (P.getPid());
     }
-
-
-
-
 
 
 }

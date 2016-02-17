@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by ismael on 2/15/16.
@@ -29,7 +28,6 @@ public class SchedRoundRobin extends SchedAlgorithm {
     public String getName() {
         return "Round Robin";
     }
-
 
 
     @Override

@@ -8,16 +8,16 @@ import java.util.LinkedList;
 public class CutreOS {
     Scheduling sched;
 
-    public CutreOS(){
+    public CutreOS() {
         this.sched = new Scheduling();
     }
 
-    public ArrayList<String> getProcesses(){
+    public ArrayList<String> getProcesses() {
         LinkedList<Process> allProcesses = this.sched.getAllProcesses();
 
         ArrayList<String> list = new ArrayList<String>();
 
-        for(Iterator<Process> i = allProcesses.iterator(); i.hasNext();) {
+        for (Iterator<Process> i = allProcesses.iterator(); i.hasNext(); ) {
             Process p = i.next();
             list.add(p.getPid() + " -> " + p.getName());
         }
@@ -25,14 +25,17 @@ public class CutreOS {
         return list;
     }
 
-    public int newProcess(String name, int arriveTime, int expectedRuntime, int status){
+    public int newProcess(String name, int arriveTime, int expectedRuntime, int status) {
         Process.Status s = Process.Status.NEW;
-        switch (status){
-            case 1: s = Process.Status.RUNNING;
+        switch (status) {
+            case 1:
+                s = Process.Status.RUNNING;
                 break;
-            case 2: s = Process.Status.BLOCKED;
+            case 2:
+                s = Process.Status.BLOCKED;
                 break;
-            case 3: s = Process.Status.READY;
+            case 3:
+                s = Process.Status.READY;
                 break;
 
         }

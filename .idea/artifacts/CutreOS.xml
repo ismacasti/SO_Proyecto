@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="CutreOS">
+    <output-path>$PROJECT_DIR$/../ProyectoBin/artifacts/CutreOS</output-path>
+    <root id="archive" name="CutreOS.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="CLI" />
+      <element id="module-output" name="CutreOS" />
+    </root>
+  </artifact>
+</component>
